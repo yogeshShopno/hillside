@@ -22,7 +22,7 @@ const parseArticleContent = (content: string): React.ReactNode[] => {
   if (!content) return [];
   
   const parts: React.ReactNode[] = [];
-  let remaining = content;
+  // let remaining = content;
   let key = 0;
   
   // Pattern for custom tags

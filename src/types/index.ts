@@ -49,6 +49,12 @@ export interface Appointment {
   createdAt: Date;
 }
 
+type QuestionStatus =
+  | "pending_review"
+  | "rejected"
+  | "approved"
+  | "answered";
+
 // Community Q&A Types
 export interface Question {
   id: string;
@@ -57,7 +63,7 @@ export interface Question {
   authorName: string;
   answer?: string;
   answeredBy?: string;
-  status: 'pending_review' | 'rejected' | 'approved' | 'answered';
+  status: QuestionStatus;
   createdAt: Date;
   answeredAt?: Date;
   reviewedAt?: Date;

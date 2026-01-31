@@ -1,3 +1,4 @@
+// @ts-ignore
 import { initializeApp, FirebaseApp } from 'firebase/app';
 import { 
   getFirestore, 
@@ -385,7 +386,7 @@ export const DatabaseService = {
     const newQuestion: Question = {
       ...question,
       id: generateId(),
-      status: 'pending_review',
+      status: 'pending_review' as const,
       createdAt: new Date()
     };
     
@@ -394,7 +395,7 @@ export const DatabaseService = {
         console.log('📡 Adding question to Firestore...');
         const docRef = await addDoc(collection(db!, 'questions'), {
           ...question,
-          status: 'pending_review',
+          status: 'pending_review' as const,
           createdAt: Timestamp.now()
         });
         newQuestion.id = docRef.id;
@@ -413,7 +414,7 @@ export const DatabaseService = {
 
   approveQuestion: async (id: string): Promise<void> => {
     const updateData = {
-      status: 'approved',
+      status: 'approved' as const,
       reviewedAt: useFirebase() ? Timestamp.now() : new Date(),
       reviewedBy: 'Admin'
     };
@@ -437,7 +438,7 @@ export const DatabaseService = {
 
   rejectQuestion: async (id: string, reason?: string): Promise<void> => {
     const updateData = {
-      status: 'rejected',
+      status: 'rejected' as const,
       reviewedAt: useFirebase() ? Timestamp.now() : new Date(),
       reviewedBy: 'Admin',
       rejectReason: reason || 'Rejected'
@@ -463,7 +464,7 @@ export const DatabaseService = {
   answerQuestion: async (id: string, answer: string): Promise<void> => {
     const updateData = {
       answer,
-      status: 'answered',
+      status: 'answered' as const,
       answeredAt: useFirebase() ? Timestamp.now() : new Date(),
       answeredBy: 'Hillside Team'
     };
@@ -698,7 +699,7 @@ export const DatabaseService = {
     const newAppointment: Appointment = {
       ...appointment,
       id: generateId(),
-      status: 'pending',
+      status: 'pending' as const,
       createdAt: new Date()
     };
     
@@ -707,7 +708,7 @@ export const DatabaseService = {
         console.log('📡 Adding appointment to Firestore...');
         const docRef = await addDoc(collection(db!, 'appointments'), {
           ...appointment,
-          status: 'pending',
+          status: 'pending' as const,
           createdAt: Timestamp.now()
         });
         newAppointment.id = docRef.id;
