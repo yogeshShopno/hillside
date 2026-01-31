@@ -1,0 +1,174 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal {
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+}
+
+.header {
+  padding: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.header p {
+  color: var(--text-secondary);
+}
+
+.closeBtn {
+  background: var(--bg-body);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.closeBtn:hover {
+  background: #e2e8f0;
+}
+
+.content {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Date Scroll */
+.dateScroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.dateScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.dateBtn {
+  flex-shrink: 0;
+  width: 70px;
+  height: 80px;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.dateBtn:disabled {
+  opacity: 0.5;
+  background: var(--bg-body);
+  cursor: not-allowed;
+}
+
+.selectedDay {
+  background: var(--text-main);
+  color: white;
+  border-color: var(--text-main);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+.dayName {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 4px;
+  opacity: 0.8;
+}
+
+.dayNum {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Time Grid */
+.timeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.timeBtn {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  background: white;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.timeBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.selectedTime {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.footer {
+  padding: 24px;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-body);
+}
+
+.primaryBtn {
+  width: 100%;
+  padding: 16px;
+  background: var(--text-main);
+  color: white;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.primaryBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.primaryBtn:not(:disabled):hover {
+  background: var(--primary);
+}
